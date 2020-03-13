@@ -1,6 +1,7 @@
 /**
  * es6 modules and imports
  */
+const $ = require ('jquery');
 import sayHello from './hello';
 sayHello('World');
 
@@ -18,3 +19,4 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+$('#h1Test').css('background', 'red');
