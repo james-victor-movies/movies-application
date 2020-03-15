@@ -26,7 +26,10 @@ $(document).ready(function () {
     $('#loadingM').text('Loading...');
 });
 //TEXT.BOX
+//FORM.DIV
+//addMovie
+//will target id of 
+$('')
+//GENERAL.STYLING
 $('#addMovieForm').css('margin', 0);
-//GENERALSYTLING
-
 $('.container').css('maring-top', '10px');
