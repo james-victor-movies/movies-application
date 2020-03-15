@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+<!--HEADER-->
+<!--MAIN-->
+<div id="formDiv">
+    <!--ADD.MOVIE-->
+    <div id="addMovieForm">
+        <label addMovieLabel>Add your own movie!</label>
+        <input id="addMovieText" type="text">
+        <button id="addMovieButton" type="button">Add your Movie</button>
     </div>
+</div>
+<div class="container">
+    <p id="loadingM">Hello There!</p>
+</div>
+<!--FOOTER-->
 
-    <script src="./main.js"></script>
+
+<script src="./main.js"></script>
 </body>
 </html>
