@@ -1,5 +1,6 @@
 /**
  * es6 modules and imports
+ *
  */
 const $ = require('jquery');
 import sayHello from './hello';
@@ -26,8 +27,6 @@ $(document).ready(function () {
     $('#loadingM').text('Loading...');
 });
 //TEXT.BOX
-//FORM.DIV
-//addMovie
 //will target id of 
 $('')
 //GENERAL.STYLING
