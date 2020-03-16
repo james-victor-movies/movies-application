@@ -66,4 +66,9 @@ $('#addMovieButton').click(function() {
 // Give users the option to edit an existing movie
 // A form should be pre-populated with the selected movie's details
 // Like creating a movie, this should not involve any page reloads, instead your javascript code should make an ajax request when the form is submitted.
-//
+
+// Request which movie the user wants from the api.
+// The display info in text box that can be modifiyed by user.
+// Changes that are made by user will be submitted to the api.
+
+
