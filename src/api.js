@@ -13,24 +13,47 @@ module.exports = {
     //     })
     //         .then(response => response.json());
     // },
+    // postMovie: (input) => {
+    //     fetch('api/movies', {
+    //         method: 'POST',
+    //         headers: {
+    //             "content-type": 'application/json'
+    //         },
+    //         body: JSON.stringify(input),
+    //     })
+    //         .then(function (data) {
+    //             console.log('Request succeeded with JSON response', data);
+    //         })
+    //         .catch(function (error) {
+    //             console.log('Request failed', error);
+    //         });
+    // }
     postMovie: (input) => {
-        fetch('/api/movies', {
-            method: 'post',
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify(input),
-        })
-            .then(function (data) {
-                console.log('Request succeeded with JSON response', data);
-            })
-            .catch(function (error) {
-                console.log('Request failed', error);
-            });
-    },
+    const options = {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(input)
+    };
+    return fetch('/api/movies', options)
+        .then(response => response.json());
+},
 };
 
 
+// Jimmy  11:23 AM
+// addMovie: (movie) => {
+//     const options = {
+//         method: "POST",
+//         headers: {
+//             "content-type": "application/json"
+//         },
+//         body: JSON.stringify(movie)
+//     };
+//     return fetch('/api/movies', options)
+//         .then(response => response.json());
+// },
 
 
 // declare a function that pulls the date
