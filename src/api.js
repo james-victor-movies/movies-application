@@ -39,6 +39,18 @@ module.exports = {
     return fetch('/api/movies', options)
         .then(response => response.json());
 },
+    //this is the put method that will let users edit the movie they selected
+    editMovie: (input) => {
+        const edit = {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(input)
+        };
+        return fetch(`/api/movies/${id}`)
+            .then(response => response.json())
+    }
 };
 
 

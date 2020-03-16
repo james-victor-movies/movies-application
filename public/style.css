@@ -8,3 +8,11 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+#formDiv-2 {
+    margin-top: 2em;
+}
+
+#edit-movie {
+    margin-top: 1em;
+}
