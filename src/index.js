@@ -58,49 +58,36 @@ $('#addMovieButton').click(function () {
     return postMovie(userMovieInput);
 });
 //EDIT.MOVIE
-let choseMovie = () => {
-    let bucket = [];
-    return fetch('/api/movies')
-        .then(response => response.json()).then(
-            response => {
-                let movies = response
-                movies.forEach(function (movie) {
-                    bucket.push(movie.title);
-                })
-                // console.log(bucket);
-                // console.log(bucket);
-                return bucket;
-            }
-        );
-}
+// let choseMovie = () => {
+//     let bucket = [];
+//     return fetch('/api/movies')
+//         .then(response => response.json()).then(
+//             response => {
+//                 let movies = response
+//                 movies.forEach(function (movie) {
+//                     bucket.push(movie.title);
+//                 })
+//                 // console.log(bucket);
+//                 // console.log(bucket);
+//                 return bucket;
+//             }
+//         );
+// }
 $('#selectMovieToEdit').click(function (e) {
   let userInput = $('#searchBox').val().toLowerCase();
-    console.log(userInput);
   let bucket = [];
   getMovies().then(response =>
       response.forEach(function (movie) {
-      if (userInput === movie.title){bucket.push(movie.id)};
-  }));
-    console.log(bucket);
-    let selectedMovie = bucket
+          console.log(movie);
+      if (userInput === movie.title){
+          bucket.push(movie.id) };
+
+
+  })).then(console.log(bucket[0]));
+    // let selectedMovie = bucket[0];
+    // console.log(selectedMovie);
+    // return selectedMovie;
 })
-    $('#edit-movie').append(bucket);
-    // let finalBucket = [];
-    // let titleFilter = titleBucket.forEach(function (title) {
-    //     if (movie === userInput){
-    //         finalBucket.push(title);
-    //     }
-    //     console.log(finalBucket)
-    // })
-
-
-    // let finalBucket = [];
-    // let titleFilter = titleBucket.forEach(function (title) {
-    //     if (movie === userInput) {
-    //         finalBucket.push(title);
-    //     }
-    //     console.log(finalBucket);
-    // })
 
 
 
