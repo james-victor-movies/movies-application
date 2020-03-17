@@ -5,26 +5,28 @@ module.exports = {
             .then(response => response.json());
     },
     postMovie: (input) => {
-    const options = {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(input)
-    };
-    return fetch('/api/movies', options)
-        .then(response => response.json());
-},
-    //this is the put method that will let users edit the movie they selected
-    editMovie: () => {
-        let titleBucket = [];
-    return fetch('/api/movies')
-        .then(response => response.json().then(response => {
-            let movies = (response)
-            return (movies);
-        }
+        const options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(input)
+        };
+        return fetch('/api/movies', options)
+            .then(response => response.json());
+    },
+    editMovie: (input) => {
+        const options = {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(input)
+        };
+        return fetch('/api/movies', options)
+            .then(response => response.json());
     }
-
+};
 // if (coffee.roast === selectedRoast) {
 //     filteredCoffees.push(coffee);
 // }
