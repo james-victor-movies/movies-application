@@ -18,31 +18,36 @@
         <input id="addMovieText" type="text">
 <!--        <button id="addMovieButton" type="button">Add your Movie</button>-->
     </div>
-</div>
 
-<div id="formDiv-2">
+
     <!--ADD.MOVIE-->
     <div id="addMovieForm-2">
         <label id="addMovieLabel-2">Add your own rating!</label>
         <input id="addMovieRating" type="text">
 <!--        <button id="addMovieRatingButton" type="button">Add your Rating</button>-->
     </div>
-</div>
 <button id="addMovieButton" type="button">Add your Movie</button>
-
-
+</div>
 <!--NEED TO ADD A SEARCH BAR FOR USERS TO SELECT MOVIE-->
 <!--This is the input field that will let the users edit movie-->
 <div id="edit-movie">
-    <label for="movie-edit-title">Edit title</label>
-    <input type="text" id="movie-edit-title">
-    <label for="movie-edit-rating">Edit title</label>
-    <input type="text" id="movie-edit-rating">
-</div>
+    <label for="searchBox">Which Movie would you like to edit</label>
+    <input id="searchBox"    type="text">
+    <button id="selectMovieToEdit">Select</button>
 
-<div class="container">
-    <p id="loadingM">Hello There!</p>
+
+    <label for="editTitleText">Edit title</label>
+    <input type="text" id="editTitleText">
+    <label for="editRatingText">Edit Rating</label>
+    <input type="text" id="editRatingText">
+    <button id="editButton" >Edit</button>
 </div>
+<div class="container"></div>
+
+
+
+
+
 <!--FOOTER-->
 <script src="../src/api.js"></script>
 <script src="./main.js"></script>

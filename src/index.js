@@ -5,6 +5,7 @@ const $ = require('jquery');
 import sayHello from './hello';
 const {getMovies} = require('./api.js');
 const {postMovie} = require('./api.js');
+const {editMovie} = require('./api.js');
 
 sayHello('World');
 
@@ -13,7 +14,7 @@ sayHello('World');
  */
 let bucket = [];
 getMovies().then((movies) => {
-    movies.forEach(({title, rating}) => {
+    movies.forEach(({title, rating, }) => {
         let movieInfoString = (`${title} - rating:  ${rating} <br>`);
         bucket.push(movieInfoString);
     });
@@ -26,12 +27,6 @@ getMovies().then((movies) => {
 $(document).ready(function () {
     $('#loadingM').text('Loading...');
 });
-
-// 1 add a text box for rating (done)
-// reload get movies after add (done)
-// fix jqeury (done)
-// clear textbox after submit (done)
-
 
 $('#addMovieButton').click(function() {
     //userMovieInput variable is supposed to convert the user input to a value
@@ -61,6 +56,27 @@ $('#addMovieButton').click(function() {
     });
    return postMovie(userMovieInput);
 });
+console.log(editMovie());
+
+//EDIT.MOVIE
+
+let finalBucket = [];
+let titleFilter = titleBucket.forEach(function (title) {
+    if (movie === userInput){
+        finalBucket.push(title);
+    }
+    console.log(finalBucket);
+})
+
+
+
+
+
+//Find a way to chose which movie to edit
+    // search box : would create a text input, " if input === title " return object, use PUT method to edit object
+    // drop down : drop write a function that iterates through Json and displays all objects, all objects are clickable, when clicked : returns obj information
+    // table with link : same as drop but with table.
+    //
 
 // Allow users to edit existing movies
 // Give users the option to edit an existing movie
