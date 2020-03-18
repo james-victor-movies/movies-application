@@ -25,6 +25,17 @@ module.exports = {
         };
         return fetch('/api/movies', options)
             .then(response => response.json());
+    },
+    deleteMovie: (id) => {
+        console.log(JSON.stringify({id}));
+        return fetch(`/api/movies/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id})
+        })
+            .then(response => response.json());
     }
 };
 // if (coffee.roast === selectedRoast) {

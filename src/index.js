@@ -1,13 +1,15 @@
 /**
  * es6 modules and imports
  */
+import {deleteMovie} from "./api";
+
 const $ = require('jquery');
 import sayHello from './hello';
 
 const {getMovies} = require('./api.js');
 const {postMovie} = require('./api.js');
 const {editMovie} = require('./api.js');
-
+// const {deleteMovie} = require('./api');
 sayHello('World');
 
 /**
@@ -66,13 +68,13 @@ let choseMovie = () => {
                 let movies = response
                 movies.forEach(function (movie) {
                     bucket.push(movie.title);
-                })
+                });
                 // console.log(bucket);
                 // console.log(bucket);
                 return bucket;
             }
         );
-}
+};
 $('#selectMovieToEdit').click(function (e) {
   let userInput = $('#searchBox').val().toLowerCase();
     console.log(userInput);
@@ -119,4 +121,35 @@ $('#selectMovieToEdit').click(function (e) {
 // The display info in text box that can be modifiyed by user.
 // Changes that are made by user will be submitted to the api.
 
+$('#delete-movie-btn').click(function(){
+    let deleteUserMovie = $('#deleted-movie').val();
+    console.log(deleteUserMovie);
+    $('.container').html('');
+    let deleteBucket = [];
+    getMovies().then((movies) => {
+        let movieNameID;
+        movies.forEach((movie) => {
+            // console.log(movie.title, movie.id)
+            if (deleteUserMovie === movie.title){
+                // deleteBucket.push(movie.id);
+                movieNameID = movie.id;
+                console.log((movie.id))
+            }
+        });
+        return deleteMovie(movieNameID);
+    });
+    let bucket = [];
+    getMovies().then((movies) => {
+        movies.forEach(({title, rating}) => {
+            let movieInfoString = (`${title} - rating:  ${rating} <br>`);
+            bucket.push(movieInfoString);
+            return getMovies(movieInfoString);
+        });
 
+        $('.container').html(`Here are the all the movies:<br> ${bucket}`)
+    }).catch((error) => {
+        console.log('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
+    });
+
+});
