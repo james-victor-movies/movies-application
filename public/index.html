@@ -14,18 +14,17 @@
 <body>
 <!--HEADER-->
 <!--MAIN-->
-<div id="bootStrapContainer">
+<div id="bootStrapContainer" style="width: 100%">
 
-    <div id="formDiv">
+<!--    <div id="formDiv">-->
         <!--ADD.MOVIE-->
 
-        <div class="container">
-            <div class="row">
+        <div class="container" id="options-container" style="width: 100vw;">
+<!--            <div class="row">-->
                 <div class="col">
-                    1 of 2
                     <div class="row">
-                        <div class="card" style="width: 20rem;">
-                            <div class="card-body">
+                        <div class="card" style="width: 20rem; margin-left: -150px">
+                            <div class="card-body" style="margin-left: -150px; height: auto;">
                                 <h5 class="card-title">Add your movie Here!</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">Enter name of movie here and click add</h6>
                                 <div id="addMovieForm">
@@ -59,8 +58,8 @@
                             </div>
 
 
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
+                            <div class="card" style="width: 18rem; margin-left: -150px">
+<!--                                <div class="card-body">-->
                                     <h5 class="card-title">Delete you movie Here!</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Enter name of movie here and click
                                         delete</h6>
@@ -68,12 +67,12 @@
                                         <input type="text" id="deleted-movie">
                                         <button id="delete-movie-btn">delete movie</button>
                                     </div>
-                                </div>
+<!--                                </div>-->
                             </div>
                         </div>
 
 
-                        <div class="col">
+                        <div class="col" id="movie-list" style="margin-left: 200px">
                             <div class="apiOutput"></div>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
 
             </div>
         </div>
-    </div>
+<!--    </div>-->
 </div>
 
 
