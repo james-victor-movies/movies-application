@@ -21,7 +21,7 @@ getMovies().then((movies) => {
         let movieInfoString = (`${title} - rating:  ${rating} <br>`);
         bucket.push(movieInfoString);
     });
-    $('.container').html(`Here are the all the movies:<br> ${bucket}`)
+    $('#movie-list').html(`Here are the all the movies:<br> ${bucket}`)
 }).catch((error) => {
     console.log('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
@@ -135,7 +135,7 @@ $('#delete-movie-btn').click(function(){
                 return deleteMovie(movieNameID);
             }
         });
-    $('.container').html('');
+    $('#movie-list').html('');
     $('#deleted-movie').val('');
     let bucket = [];
     getMovies().then((movies) => {
@@ -143,7 +143,7 @@ $('#delete-movie-btn').click(function(){
             let movieInfoString = (`${title} - rating:  ${rating} <br>`);
             bucket.push(movieInfoString);
         });
-        $('.container').html(`Here are the all the movies:<br> ${bucket}`)
+        $('#movie-list').html(`Here are the all the movies:<br> ${bucket}`)
     }).catch((error) => {
         console.log('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);

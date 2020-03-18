@@ -2,12 +2,13 @@ html, body {
     height: 100%;
 }
 
-/*.container {*/
-/*    position: relative;*/
-/*    top: 50%;*/
-/*    transform: translateY(-100%);*/
-/*    text-align: center;*/
-/*}*/
+#movie-container {
+    position: relative;
+    right: -50%;
+    top: 0;
+    transform: translateY(-100%);
+    text-align: center;
+}
 
 #formDiv-2 {
     margin-top: 2em;
