@@ -45,6 +45,7 @@ $('#addMovieButton').click(function () {
     //these two lines of code will remove the input from the input bars
     $('#addMovieText').val('');
     $('#addMovieRating').val('');
+
     $('.container').html('');
     let bucket = [];
     getMovies().then((movies) => {
@@ -124,32 +125,28 @@ $('#selectMovieToEdit').click(function (e) {
 $('#delete-movie-btn').click(function(){
     let deleteUserMovie = $('#deleted-movie').val();
     console.log(deleteUserMovie);
-    $('.container').html('');
-    let deleteBucket = [];
     getMovies().then((movies) => {
         let movieNameID;
         movies.forEach((movie) => {
-            // console.log(movie.title, movie.id)
+            console.log(movie.title, movie.id);
             if (deleteUserMovie === movie.title){
-                // deleteBucket.push(movie.id);
                 movieNameID = movie.id;
-                console.log((movie.id))
+                console.log((movie.id));
+                return deleteMovie(movieNameID);
             }
         });
-        return deleteMovie(movieNameID);
-    });
+    $('.container').html('');
+    $('#deleted-movie').val('');
     let bucket = [];
     getMovies().then((movies) => {
-        movies.forEach(({title, rating}) => {
+        movies.forEach(({title, rating,}) => {
             let movieInfoString = (`${title} - rating:  ${rating} <br>`);
             bucket.push(movieInfoString);
-            return getMovies(movieInfoString);
         });
-
         $('.container').html(`Here are the all the movies:<br> ${bucket}`)
     }).catch((error) => {
         console.log('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
+        });
     });
-
 });

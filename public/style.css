@@ -2,12 +2,12 @@ html, body {
     height: 100%;
 }
 
-.container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
-}
+/*.container {*/
+/*    position: relative;*/
+/*    top: 50%;*/
+/*    transform: translateY(-100%);*/
+/*    text-align: center;*/
+/*}*/
 
 #formDiv-2 {
     margin-top: 2em;
@@ -16,3 +16,25 @@ html, body {
 #edit-movie {
     margin-top: 1em;
 }
+
+/*#delete-movie {*/
+/*    !*height: 6em;*!*/
+/*    !*width: 5em;*!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    height: 3em;*/
+/*    width: 15em;*/
+/*    margin: 2em;*/
+/*    border-style: solid;*/
+/*    border-color: black;*/
+/*}*/
+
+/*#deleted-movie {*/
+/*    margin-top: 1em;*/
+/*    height: 1.5em;*/
+/*}*/
+
+/*#delete-movie-btn {*/
+/*    margin-top: 1em;*/
+/*    height: 2em;*/
+/*}*/
