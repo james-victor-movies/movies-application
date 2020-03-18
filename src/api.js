@@ -15,15 +15,15 @@ module.exports = {
         return fetch('/api/movies', options)
             .then(response => response.json());
     },
-    editMovie: (input) => {
+    editMovie: (id, userEdit) => {
         const options = {
-            method: "PUT",
+            method: "PATCH",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(input)
+            body: JSON.stringify(userEdit)
         };
-        return fetch('/api/movies', options)
+        return fetch(`/api/movies/${id}`, options)
             .then(response => response.json());
     },
     deleteMovie: (id) => {

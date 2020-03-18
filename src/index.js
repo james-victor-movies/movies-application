@@ -76,35 +76,57 @@ let choseMovie = () => {
             }
         );
 };
-$('#selectMovieToEdit').click(function (e) {
-  let userInput = $('#searchBox').val().toLowerCase();
-    console.log(userInput);
-  let bucket = [];
-  getMovies().then(response =>
-      response.forEach(function (movie) {
-      if (userInput === movie.title){bucket.push(movie.id)};
-  }));
-    console.log(bucket);
-    let selectedMovie = bucket
-})
-    $('#edit-movie').append(bucket);
-    // let finalBucket = [];
-    // let titleFilter = titleBucket.forEach(function (title) {
-    //     if (movie === userInput){
-    //         finalBucket.push(title);
-    //     }
-    //     console.log(finalBucket)
-    // })
+$('#editButton').click(function (e) {
+    let userInput = $('#searchBox').val().toLowerCase();
+    let userEdit = {
+        title: $('#editTitleText').val(),
+        rating: $('#editRatingText').val()
+    };
+    getMovies().then(movies =>
+        movies.forEach(({title, rating, id}) => { //loops through each movie in the array
+            let titleToLower = title.toLowerCase();
+
+            if (userInput === titleToLower) {
+                console.log(id);
+                console.log(titleToLower);
+                editMovie(id, userEdit);
+            }
+            $('.container').html('');
+            $('#searchBox').val('');
+            $('#editRatingText').val('');
+            $('#editTitleText').val('');
+            let bucket = [];
+            getMovies().then((movies) => {
+                movies.forEach(({title, rating,}) => {
+                    let movieInfoString = (`${title} - rating:  ${rating} <br>`);
+                    bucket.push(movieInfoString);
+                });
+                $('.container').html(`Here are the all the movies:<br> ${bucket}`)
+            }).catch((error) => {
+                console.log('Oh no! Something went wrong.\nCheck the console for details.');
+                console.log(error);
+            })
+        }));
 
 
-    // let finalBucket = [];
-    // let titleFilter = titleBucket.forEach(function (title) {
-    //     if (movie === userInput) {
-    //         finalBucket.push(title);
-    //     }
-    //     console.log(finalBucket);
-    // })
+});
 
+// let finalBucket = [];
+// let titleFilter = titleBucket.forEach(function (title) {
+//     if (movie === userInput){
+//         finalBucket.push(title);
+//     }
+//     console.log(finalBucket)
+// })
+
+
+// let finalBucket = [];
+// let titleFilter = titleBucket.forEach(function (title) {
+//     if (movie === userInput) {
+//         finalBucket.push(title);
+//     }
+//     console.log(finalBucket);
+// })
 
 
 //Find a way to chose which movie to edit
@@ -122,31 +144,31 @@ $('#selectMovieToEdit').click(function (e) {
 // The display info in text box that can be modifiyed by user.
 // Changes that are made by user will be submitted to the api.
 
-$('#delete-movie-btn').click(function(){
+$('#delete-movie-btn').click(function () {
     let deleteUserMovie = $('#deleted-movie').val();
     console.log(deleteUserMovie);
     getMovies().then((movies) => {
         let movieNameID;
         movies.forEach((movie) => {
             console.log(movie.title, movie.id);
-            if (deleteUserMovie === movie.title){
+            if (deleteUserMovie === movie.title) {
                 movieNameID = movie.id;
                 console.log((movie.id));
                 return deleteMovie(movieNameID);
             }
         });
-    $('.container').html('');
-    $('#deleted-movie').val('');
-    let bucket = [];
-    getMovies().then((movies) => {
-        movies.forEach(({title, rating,}) => {
-            let movieInfoString = (`${title} - rating:  ${rating} <br>`);
-            bucket.push(movieInfoString);
-        });
-        $('.container').html(`Here are the all the movies:<br> ${bucket}`)
-    }).catch((error) => {
-        console.log('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
+        $('.container').html('');
+        $('#deleted-movie').val('');
+        let bucket = [];
+        getMovies().then((movies) => {
+            movies.forEach(({title, rating,}) => {
+                let movieInfoString = (`${title} - rating:  ${rating} <br>`);
+                bucket.push(movieInfoString);
+            });
+            $('.container').html(`Here are the all the movies:<br> ${bucket}`)
+        }).catch((error) => {
+            console.log('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
         });
     });
 });
