@@ -14,62 +14,77 @@
 <body>
 <!--HEADER-->
 <!--MAIN-->
-<div id="formDiv">
-    <!--ADD.MOVIE-->
-    <div class="container" id="card-container">
-        <div class="row">
-    <div class="card" style="width: 20rem;">
-        <div class="card-body">
-            <h5 class="card-title">Add your movie Here!</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Enter name of movie here and click add</h6>
-            <div id="addMovieForm">
-                <label id="addMovieLabel">Add your own movie title!</label>
-                <input id="addMovieText" type="text">
-                <!--        <button id="addMovieButton" type="button">Add your Movie</button>-->
-            </div>
-            <!--ADD.MOVIE-->
-            <div id="addMovieForm-2">
-                <label id="addMovieLabel-2">Add your own rating!</label>
-                <input id="addMovieRating" type="text">
-                <!--        <button id="addMovieRatingButton" type="button">Add your Rating</button>-->
-                <button id="addMovieButton" type="button">Add your Movie</button>
-            </div>
+<div id="bootStrapContainer">
 
-            <!--NEED TO ADD A SEARCH BAR FOR USERS TO SELECT MOVIE-->
-            <!--This is the input field that will let the users edit movie-->
-            <div class="card" style="width: 20rem;">
-                <h5 class="card-title">Edit your movie Here!</h5>
-                <label for="searchBox">Which Movie would you like to edit</label>
-                <input id="searchBox" type="text">
-                <div class="card-body">
+    <div id="formDiv">
+        <!--ADD.MOVIE-->
 
-                    <label for="editTitleText">Edit title</label>
-                    <input type="text" id="editTitleText">
-                    <label for="editRatingText">Edit Rating</label>
-                    <input type="text" id="editRatingText">
-                    <button id="editButton">Edit</button>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    1 of 2
+                    <div class="row">
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Add your movie Here!</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Enter name of movie here and click add</h6>
+                                <div id="addMovieForm">
+                                    <label id="addMovieLabel">Add your own movie title!</label>
+                                    <input id="addMovieText" type="text">
+                                    <!--        <button id="addMovieButton" type="button">Add your Movie</button>-->
+                                </div>
+                                <!--ADD.MOVIE-->
+                                <div id="addMovieForm-2">
+                                    <label id="addMovieLabel-2">Add your own rating!</label>
+                                    <input id="addMovieRating" type="text">
+                                    <!--        <button id="addMovieRatingButton" type="button">Add your Rating</button>-->
+                                    <button id="addMovieButton" type="button">Add your Movie</button>
+                                </div>
+
+                                <!--NEED TO ADD A SEARCH BAR FOR USERS TO SELECT MOVIE-->
+                                <!--This is the input field that will let the users edit movie-->
+                                <div class="card" style="width: 20rem;">
+                                    <h5 class="card-title">Edit your movie Here!</h5>
+                                    <label for="searchBox">Which Movie would you like to edit</label>
+                                    <input id="searchBox" type="text">
+                                    <div class="card-body">
+
+                                        <label for="editTitleText">Edit title</label>
+                                        <input type="text" id="editTitleText">
+                                        <label for="editRatingText">Edit Rating</label>
+                                        <input type="text" id="editRatingText">
+                                        <button id="editButton">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Delete you movie Here!</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Enter name of movie here and click
+                                        delete</h6>
+                                    <div id="delete-movie">
+                                        <input type="text" id="deleted-movie">
+                                        <button id="delete-movie-btn">delete movie</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col">
+                            <div class="apiOutput"></div>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
-        </div>
-
-
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Delete you movie Here!</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Enter name of movie here and click delete</h6>
-                <div id="delete-movie">
-                    <input type="text" id="deleted-movie">
-                    <button id="delete-movie-btn">delete movie</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container"></div>
-    </div>
         </div>
     </div>
 </div>
-</div>
+
 
 <!--&lt;!&ndash;NEED TO ADD A SEARCH BAR FOR USERS TO SELECT MOVIE&ndash;&gt;-->
 <!--&lt;!&ndash;This is the input field that will let the users edit movie&ndash;&gt;-->
