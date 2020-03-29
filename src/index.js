@@ -3,19 +3,29 @@ import {deleteMovie} from "./api";
 const {getMovies} = require('./api.js');
 const {postMovie} = require('./api.js');
 const {editMovie} = require('./api.js');
-const {search} = require('./api.js');
 //
 
 
 //TESTING MOVIE API
 $("#searchMovieButton").click(function () {
-    let input = $("#searchMovieInput").val();
-    console.log(input);
+ let input = $("#searchMovieInput").val();
+    let search = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/${input}`,
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com",
+            "x-rapidapi-key": "93dc77fa6bmsh779ff746556d205p165970jsncb50661a2d97"
+        }
+    };
+    search;
+    let ajaxSearch =
+        $.ajax(search).done(function (response) {
 
-    $.ajax(search).done(function (response) {
-
-        console.log(response);
-    });
+            console.log(response);
+        });
+    ajaxSearch;
 });
 //
 
