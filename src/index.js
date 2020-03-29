@@ -22,8 +22,10 @@ $("#searchMovieButton").click(function () {
     search;
     let ajaxSearch =
         $.ajax(search).done(function (response) {
-
-            console.log(response);
+            response.titles.forEach(function (title) {
+                console.log(title);
+                console.log(title.image);
+            })
         });
     ajaxSearch;
 });
