@@ -1,16 +1,25 @@
-/**
- * es6 modules and imports
- */
+//ALL IMPORTS
 import {deleteMovie} from "./api";
-
-const $ = require('jquery');
-import sayHello from './hello';
-
 const {getMovies} = require('./api.js');
 const {postMovie} = require('./api.js');
 const {editMovie} = require('./api.js');
-// const {deleteMovie} = require('./api');
+const {search} = require('./api.js');
+//
 
+
+//TESTING MOVIE API
+$("#searchMovieButton").click(function () {
+    let input = $("#searchMovieInput").val();
+    console.log(input);
+
+    $.ajax(search).done(function (response) {
+
+        console.log(response);
+    });
+});
+//
+
+// GET MOVIES
 let bucket = [];
 getMovies().then((movies) => {
     movies.forEach(({title, rating,}) => {
@@ -22,10 +31,15 @@ getMovies().then((movies) => {
     console.log('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
 });
+//
+
+
 // LOADING.MESSAGE
 $(document).ready(function () {
     $('#loadingM').text('Loading...');
 });
+//
+
 
 
 // ADD MOVIE
@@ -35,8 +49,8 @@ $('#addMovieButton').click(function () {
         title: $('#addMovieText').val(),
         rating: $('#addMovieRating').val()
     };
-    //declared variable for the userMovieRating input
-    //these two lines of code will remove the input from the input bars
+    // Testing UserMovieInput
+    console.log(userMovieInput);
     $('#addMovieText').val('');
     $('#addMovieRating').val('');
 
@@ -55,21 +69,21 @@ $('#addMovieButton').click(function () {
     return postMovie(userMovieInput);
 });
 //EDIT.MOVIE
-let choseMovie = () => {
-    let bucket = [];
-    return fetch('/api/movies')
-        .then(response => response.json()).then(
-            response => {
-                let movies = response
-                movies.forEach(function (movie) {
-                    bucket.push(movie.title);
-                });
-                // console.log(bucket);
-                // console.log(bucket);
-                return bucket;
-            }
-        );
-};
+// let choseMovie = () => {
+//     let bucket = [];
+//     return fetch('/api/movies')
+//         .then(response => response.json()).then(
+//             response => {
+//                 let movies = response
+//                 movies.forEach(function (movie) {
+//                     bucket.push(movie.title);
+//                 });
+//                 // console.log(bucket);
+//                 // console.log(bucket);
+//                 return bucket;
+//             }
+//         );
+// };
 $('#editButton').click(function (e) {
     let userInput = $('#searchBox').val().toLowerCase();
     let userEdit = {
