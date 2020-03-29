@@ -10,11 +10,7 @@ const {getMovies} = require('./api.js');
 const {postMovie} = require('./api.js');
 const {editMovie} = require('./api.js');
 // const {deleteMovie} = require('./api');
-sayHello('World');
 
-/**
- * require style imports
- */
 let bucket = [];
 getMovies().then((movies) => {
     movies.forEach(({title, rating,}) => {
@@ -31,12 +27,10 @@ $(document).ready(function () {
     $('#loadingM').text('Loading...');
 });
 
-$('#addMovieButton').click(function () {
-    //userMovieInput variable is supposed to convert the user input to a value
-    // let userMovieInput = { title:$('#addMovieText').val(),
-    //                         rating: '5'};
 
-    //trying to add both the rating and the title with the same click function
+// ADD MOVIE
+        //ADD MOVIE BUTTON
+$('#addMovieButton').click(function () {
     let userMovieInput = {
         title: $('#addMovieText').val(),
         rating: $('#addMovieRating').val()
@@ -53,7 +47,7 @@ $('#addMovieButton').click(function () {
             let movieInfoString = (`${title} - rating:  ${rating} <br>`);
             bucket.push(movieInfoString);
         });
-        $('#card-container').html(`Here are the all the movies:<br> ${bucket}`)
+        $('.apiOutput').html(`Here are the all the movies:<br> ${bucket}`)
     }).catch((error) => {
         console.log('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
