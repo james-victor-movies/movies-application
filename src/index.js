@@ -1,5 +1,6 @@
 //ALL IMPORTS
 import {deleteMovie} from "./api";
+
 const {getMovies} = require('./api.js');
 const {postMovie} = require('./api.js');
 const {editMovie} = require('./api.js');
@@ -8,7 +9,7 @@ const {editMovie} = require('./api.js');
 
 //TESTING MOVIE API
 $("#searchMovieButton").click(function () {
- let input = $("#searchMovieInput").val();
+    let input = $("#searchMovieInput").val();
     let search = {
         "async": true,
         "crossDomain": true,
@@ -23,9 +24,14 @@ $("#searchMovieButton").click(function () {
     let ajaxSearch =
         $.ajax(search).done(function (response) {
             response.titles.forEach(function (title) {
-                console.log(title);
+                console.log(title.title);
                 console.log(title.image);
+                $('.movieOutput').append(`<p id="titleLink">${title.title}</p>`);
+                $('.movieOutput').append(`<img src="${title.image}" alt="movieCover" height="10%" width="10%">
+`)
+
             })
+
         });
     ajaxSearch;
 });
@@ -53,9 +59,8 @@ $(document).ready(function () {
 //
 
 
-
 // ADD MOVIE
-        //ADD MOVIE BUTTON
+//ADD MOVIE BUTTON
 $('#addMovieButton').click(function () {
     let userMovieInput = {
         title: $('#addMovieText').val(),
