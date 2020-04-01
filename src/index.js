@@ -23,15 +23,18 @@ $("#searchMovieButton").click(function () {
     search;
     let ajaxSearch =
         $.ajax(search).done(function (response) {
+            let numberOfTitle = 0;
             response.titles.forEach(function (title) {
+
                 console.log(title.title);
                 console.log(title.image);
-                $('.movieOutput').append(`<p id="titleLink">${title.title}</p>`);
-                $('.movieOutput').append(`<img src="${title.image}" alt="movieCover" height="10%" width="10%">
-`)
-
-            })
-
+                $('.movieOutput').append(`<button class="clickedTitle" id="title${numberOfTitle}" " >${title.title}</button>`);
+                $('.movieOutput').append(`<img src="${title.image}" alt="movieCover" height="10%" width="10%">`);
+                $(`#title${numberOfTitle}`).click(function () {
+                    console.log(title.title);
+                });
+                numberOfTitle++;
+            });
         });
     ajaxSearch;
 });
